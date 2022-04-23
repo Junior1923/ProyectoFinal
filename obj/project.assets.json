@@ -8,24 +8,26 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\junio\\.nuget\\packages\\": {}
+    "C:\\Users\\jluciano\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\junio\\OneDrive\\Datos adjuntos\\Documentos\\Proyecto\\Utilidades.csproj",
+      "projectUniqueName": "C:\\Users\\jluciano\\Documents\\ProyectoFinal\\Utilidades.csproj",
       "projectName": "Utilidades",
-      "projectPath": "C:\\Users\\junio\\OneDrive\\Datos adjuntos\\Documentos\\Proyecto\\Utilidades.csproj",
-      "packagesPath": "C:\\Users\\junio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\junio\\OneDrive\\Datos adjuntos\\Documentos\\Proyecto\\obj\\",
+      "projectPath": "C:\\Users\\jluciano\\Documents\\ProyectoFinal\\Utilidades.csproj",
+      "packagesPath": "C:\\Users\\jluciano\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jluciano\\Documents\\ProyectoFinal\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\junio\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\jluciano\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -58,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

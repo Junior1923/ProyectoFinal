@@ -38,7 +38,7 @@ try
     {
         Console.Clear();
         Console.WriteLine("Eliga la opcion que desea:");
-        System.Console.Write("[1]Agenda Electronica\n[2]Conversores\n[3]Calculadora\n[4]Salir\nOpcion:");
+        System.Console.Write("[1]Agenda Electronica\n[2]Conversores\n[3]Calculadoras\n[4]Salir\nOpcion:");
         opciones = int.Parse(Console.ReadLine()!);
         switch (opciones)
         {
