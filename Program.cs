@@ -4,9 +4,6 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 /******DECLARACIONES DE VARIABLES*******/
 int opciones, opcion1, opcion2, opcion3, subopcion, opcionT, subopcion1, subopcion2, posicion;
-////LISTAS/////
-//string[] Datoscontactos;
-//string[] DatosEventos;
 
 //Lista
 List<Contacto> contactos = new List<Contacto>();
@@ -14,21 +11,10 @@ List<Contacto> contactos = new List<Contacto>();
 //Objeto
 
 
-/////LISTA CONTACTO
-//List<string[]> contactos = new List<string[]>();
-
-//if(contactos.Count>-1){
 string miJson = (File.ReadAllText("ListaContacto.json"));
 contactos = JsonSerializer.Deserialize<List<Contacto>>(miJson);
 
-/*
-if (contactos.Count > 0)
-{
-    contactos = JsonSerializer.Deserialize<List<Contacto>>(miJson);
-}*/
-//contactos.Add(JsonSerializer.Deserialize<String[]>(miJson)!);
 
-//}
 ////// LISTA EVENTO
 List<string[]> Eventos = new List<string[]>();
 ////MENU PRINCIPAL/////
@@ -38,7 +24,7 @@ try
     {
         Console.Clear();
         Console.WriteLine("Eliga la opcion que desea:");
-        System.Console.Write("[1]Agenda Electronica\n[2]Conversores\n[3]Calculadoras\n[4]Salir\nOpcion:");
+        System.Console.Write("[1]Agenda Electronica\n[2]Conversores\n[3]Calculadora\n[4]Salir\nOpcion:");
         opciones = int.Parse(Console.ReadLine()!);
         switch (opciones)
         {
@@ -83,14 +69,7 @@ try
                                         c1.Email = email;
                                         contactos.Add(c1);
 
-                                        /*contactos
-                                         Datoscontactos = new string[5];
-                                         Datoscontactos[0] = nombre;
-                                         Datoscontactos[1] = apellido;
-                                         Datoscontactos[2] = telefono;
-                                         Datoscontactos[3] = direccion;
-                                         Datoscontactos[4] = email;
-                                         contactos.Add(Datoscontactos);*/
+                                       
 
                                         //Aqui guardo los cambios de la lista
                                         string miJson2 = JsonSerializer.Serialize(contactos);
@@ -98,98 +77,7 @@ try
                                         Console.Clear();
                                         break;
                                     case 2:
-                                    /*
-                                        if (contactos.Count < 1)
-                                        {
-                                            System.Console.Write("No existe ningun contacto");
-                                            Thread.Sleep(1500);
-                                            break;
-                                        }
-                                        else if (contactos.Count > 0)
-                                        {
-                                            System.Console.WriteLine("Eliga el contacto a editar:");
-                                            for (int i = 0; i < contactos.Count; i++)
-                                            {
-                                                System.Console.WriteLine("[" + i + "]" + contactos[i][0] + " " + contactos[i][1]);
-                                            }
-                                        }
-                                        System.Console.Write("Introduzca Posicion del Contacto a editar:");
-                                        posicion = int.Parse(Console.ReadLine()!);
-                                        if (contactos.Count <= posicion)
-                                        {
-                                            System.Console.WriteLine("Este Contacto no existe");
-                                            Thread.Sleep(500);
-                                            break;
-                                        }
-                                        else
-                                        {
-                                            /*
-                                            Console.Clear();
-                                            System.Console.WriteLine("------Contacto:" + contactos[posicion][0] + " " + contactos[posicion][1] + "-------");
-                                            System.Console.WriteLine("¿Que desea editar?:");
-                                            System.Console.WriteLine("Nombre:" + contactos[posicion][0]);
-                                            System.Console.WriteLine("Apellido:" + contactos[posicion][1]);
-                                            System.Console.WriteLine("Telefono:" + contactos[posicion][2]);
-                                            System.Console.WriteLine("Direccion:" + contactos[posicion][3]);
-                                            System.Console.WriteLine("Email:" + contactos[posicion][4]);
-                                            
-                                            System.Console.Write("Introduzca informacion a editar (Pulse Enter para volver):");
-                                            string Eleccion = Console.ReadLine()!;
-                                            if (Eleccion == "Nombre" || Eleccion == "nombre")
-                                            {
-                                                System.Console.WriteLine("Digite nombre:");
-                                                string Respuesta = Console.ReadLine()!;
-                                                System.Console.Write("Editando contacto"); Thread.Sleep(850); Console.Write("."); Thread.Sleep(850); Console.Write("."); Thread.Sleep(850); Console.Write(".");
-                                                Console.Clear();
-                                                System.Console.WriteLine("Contacto editado exitosamente");
-                                                //contactos[posicion][0] = Respuesta;
-                                                string miJson3 = JsonSerializer.Serialize(contactos);
-                                                File.WriteAllText("ListaContacto.json",miJson3);
-                                            }
-                                            else if (Eleccion == "Apellido" || Eleccion == "apellido")
-                                            {
-                                                System.Console.WriteLine("Digite apellido:");
-                                                string Respuesta = Console.ReadLine()!;
-                                                System.Console.Write("Editando contacto"); Thread.Sleep(850); Console.Write("."); Thread.Sleep(850); Console.Write("."); Thread.Sleep(850); Console.Write(".");
-                                                Console.Clear();
-                                                System.Console.WriteLine("Contacto editado exitosamente");
-                                                //contactos[posicion][1] = Respuesta;
-                                            }
-                                            else if (Eleccion == "Telefono" || Eleccion == "telefono")
-                                            {
-                                                System.Console.WriteLine("Digite telefono:");
-                                                string Respuesta = Console.ReadLine()!;
-                                                System.Console.Write("Editando contacto"); Thread.Sleep(850); Console.Write("."); Thread.Sleep(850); Console.Write("."); Thread.Sleep(850); Console.Write(".");
-                                                Console.Clear();
-                                                System.Console.WriteLine("Contacto editado exitosamente");
-                                                //contactos[posicion][2] = Respuesta;
-                                            }
-                                            else if (Eleccion == "Direccion" || Eleccion == "direccion")
-                                            {
-                                                System.Console.WriteLine("Digite direccion:");
-                                                string Respuesta = Console.ReadLine()!;
-                                                System.Console.Write("Editando contacto"); Thread.Sleep(850); Console.Write("."); Thread.Sleep(850); Console.Write("."); Thread.Sleep(850); Console.Write(".");
-                                                Console.Clear();
-                                                System.Console.WriteLine("Contacto editado exitosamente");
-                                                //contactos[posicion][3] = Respuesta;
-                                            }
-                                            else if (Eleccion == "Email" || Eleccion == "Email")
-                                            {
-                                                System.Console.WriteLine("Digite Email:");
-                                                string Respuesta = Console.ReadLine()!;
-                                                System.Console.Write("Editando contacto"); Thread.Sleep(850); Console.Write("."); Thread.Sleep(850); Console.Write("."); Thread.Sleep(850); Console.Write(".");
-                                                Console.Clear();
-                                                System.Console.WriteLine("Contacto editado exitosamente");
-                                                //contactos[posicion][4] = Respuesta;
-                                            }
-                                            else
-                                            {
-                                                System.Console.WriteLine("Tiene que introducir un dato valido");
-                                                break;
-                                            }
-                                        }
-                                        Console.Write("Pulse Enter para volver al menu..."); Console.ReadKey();
-                                        break;*/
+                                    
                                     case 3://ELIMINAR
 
                                         //Verificar que la lista no esta vacia
@@ -225,36 +113,7 @@ try
                                         File.WriteAllText("ListaContacto.json", miJson2);
                                         break;
 
-                                    /*
-                                        if (contactos.Count < 1)
-                                        {
-                                            System.Console.Write("No existe ningun contacto");
-                                            Thread.Sleep(1500); ;
-                                            break;
-                                        }
-                                        else if (contactos.Count > 0)
-                                        {
-                                            System.Console.WriteLine("Eliga el contacto a eliminar:");
-                                            for (int i = 0; i < contactos.Count; i++)
-                                            {
-                                               // System.Console.WriteLine("[" + i + "]" + contactos[i][0] + " " + contactos[i][1]);
-                                            }
-                                        }
-                                        posicion = int.Parse(Console.ReadLine()!);
-                                        if (contactos.Count <= posicion)
-                                        {
-                                            System.Console.WriteLine("Este Contacto no existe");
-                                        }
-                                        else
-                                        {
-                                            contactos.RemoveAt(posicion);
-                                            Console.Clear();
-                                            System.Console.WriteLine("Contacto eliminado exitosamente");
-
-                                        }
-                                        Console.Write("Pulse para volver al menu..."); Console.ReadKey();
-                                        break;
-                                        */
+                               
                                     case 4://BUSCAR
                                         string? vBusqueda;
                                         vBusqueda = Console.ReadLine();
@@ -269,37 +128,7 @@ try
                                         {
                                             Console.WriteLine($"| {item.Nombre} | {item.Apellido} | {item.Email} | {item.Telefono} |");
                                         }
-                                        /*
-                                            if (contactos.Count < 1)
-                                            {
-                                                System.Console.Write("No existe ningun contacto");
-                                                Thread.Sleep(1500);
-                                                break;
-                                            }
-                                            else if (contactos.Count > 0)
-                                            {
-                                                System.Console.WriteLine("====Buscador de Contacto====");
-                                                System.Console.Write("Buscar Contacto:");
-                                                string Buscador = Console.ReadLine()!;
-                                                for (int i = 0; i < contactos.Count; i++)
-                                                {
-                                                   /* if (Buscador == contactos[i][0] || Buscador == contactos[i][1] || Buscador == contactos[i][2] || Buscador == contactos[i][4])
-                                                    {
-                                                        System.Console.WriteLine("------ Informacion de Contacto:" + contactos[i][0] + " " + contactos[i][1] + "-------");
-                                                        System.Console.WriteLine("Nombre:" + contactos[i][0]);
-                                                        System.Console.WriteLine("Apellido:" + contactos[i][1]);
-                                                        System.Console.WriteLine("Telefono:" + contactos[i][2]);
-                                                        System.Console.WriteLine("Direccion:" + contactos[i][3]);
-                                                        System.Console.WriteLine("Email:" + contactos[i][4]);
-                                                    }
-                                                    else
-                                                    {
-                                                        System.Console.WriteLine("No se ha encontrado ningun contacto");
-                                                    }
-                                                }
-                                            }
-                                            Console.Write("Pulse para volver al menu..."); Console.ReadKey();
-                                            */
+                                      
                                         break;
                                     case 5://LISTA
                                         if (contactos.Count == 0)
@@ -314,33 +143,7 @@ try
                                         }
                                         break;
 
-                                        /*
-                                            if (contactos.Count < 1)
-                                            {
-                                                System.Console.Write("No existe ningun contacto");
-                                                Thread.Sleep(1500);
-                                                break;
-                                            }
-                                            else if (contactos.Count > 0)
-                                            {
-                                                System.Console.WriteLine("=====Lista De contactos=====");
-                                                for (int i = 0; i < contactos.Count; i++)
-                                                {
-                                                    //System.Console.WriteLine("[" + i + "]" + contactos[i][0] + " " + contactos[i][1]);
-                                                }
-                                            }
-                                            System.Console.Write("Pulse Enter para cerrar la lista:"); Console.ReadKey();
-                                            break;
-                                        case 6://VOLVER
-                                            break;
-                                        case 7://SALIR
-                                            Environment.Exit(0);
-                                            break;
-                                        default:
-                                            Console.Clear();
-                                            System.Console.WriteLine("¡!Ha introducido una Opcion Incorrecta. Vuelva a Intentarlo¡!");
-                                            Thread.Sleep(2000);
-                                            */
+                                      
                                         
                                 }
                             } while (subopcion1 != 6);
@@ -364,12 +167,7 @@ try
                                         string hora = Console.ReadLine()!;
                                         System.Console.WriteLine("Lugar del Evento:");
                                         string lugar = Console.ReadLine()!;
-                                        /* DatosEventos = new string[4];
-                                         DatosEventos[0] = nombre;
-                                         DatosEventos[1] = fecha;
-                                         DatosEventos[2] = hora;
-                                         DatosEventos[3] = lugar;
-                                         Eventos.Add(DatosEventos);*/
+                                    
                                         Console.Clear();
                                         break;
                                     case 2:
